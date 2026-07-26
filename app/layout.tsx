@@ -38,6 +38,8 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1325533494418823"
+     crossOrigin="anonymous"></script>
       </body>
     </html>
   );
