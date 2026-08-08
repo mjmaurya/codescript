@@ -8,31 +8,31 @@ export function GitCheatSheet() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Initialize and clone</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git init
-git clone <repo-url>
-git clone <repo-url> <directory>`}
+              {`git init                        # Initialize a new local Git repository
+git clone <repo-url>             # Download repository from remote URL
+git clone <repo-url> <directory> # Clone repository into a specific directory`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Status and history</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git status
-git status --short --branch
+              {`git status                      # Show repository working directory and staging status
+git status --short --branch     # Show compact status with current branch info
 
-git log
-git log --oneline --graph --decorate --all
-git log --stat`}
+git log                         # View commit history
+git log --oneline --graph --decorate --all # View graphical history across all branches on single lines
+git log --stat                  # View history with file change statistics`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Add and commit</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git add <file>
-git add .
-git add -p   # interactive patch staging
+              {`git add <file>                  # Stage specific file for commit
+git add .                       # Stage all modified and new files
+git add -p                      # Interactively select chunks of changes to stage
 
-git commit -m "message"
-git commit --amend --no-edit`}
+git commit -m "message"         # Commit staged changes with a descriptive message
+git commit --amend --no-edit    # Add staged changes to latest commit without changing message`}
             </pre>
           </div>
         </div>
@@ -45,27 +45,27 @@ git commit --amend --no-edit`}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">View changes</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git diff                 # unstaged changes
-git diff --staged        # staged changes
+              {`git diff                        # Show unstaged modifications in working directory
+git diff --staged               # Show modifications in staging area ready to commit
 
-git diff <commit> <file>
-git diff HEAD~1..HEAD`}
+git diff <commit> <file>        # Show differences in a file relative to a specific commit
+git diff HEAD~1..HEAD           # Show differences between previous and latest commit`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Restore files</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git restore <file>           # reset working tree from index or HEAD
-git restore --staged <file>  # unstage file
+              {`git restore <file>              # Discard local uncommitted changes in working directory
+git restore --staged <file>     # Unstage file changes while keeping local modifications
 
-git checkout -- <file>       # older command, same as restore`}
+git checkout -- <file>          # Older command to discard local modifications`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Remove files</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git rm <file>               # remove file from working tree and index
-git rm --cached <file>      # keep file locally, remove from index`}
+              {`git rm <file>                  # Remove file from working directory and staging area
+git rm --cached <file>         # Remove file from tracking while keeping local file on disk`}
             </pre>
           </div>
         </div>
@@ -79,19 +79,19 @@ git rm --cached <file>      # keep file locally, remove from index`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Branch commands</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git branch                  # list branches
-git branch <name>           # create branch
-git branch -d <name>        # delete branch (if merged)
-git branch -D <name>        # force delete branch`}
+                {`git branch                     # List local branches
+git branch <name>              # Create new branch
+git branch -d <name>           # Delete branch if fully merged
+git branch -D <name>           # Force delete branch regardless of merge status`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Switch branches</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git switch <branch>
-git switch -c <branch>      # create and switch
-git checkout <branch>       # older command
-git switch -C <branch>      # recreate branch from current commit`}
+                {`git switch <branch>           # Switch to target branch
+git switch -c <branch>         # Create and switch to new branch
+git checkout <branch>          # Older command to switch branches
+git switch -C <branch>         # Force create or reset and switch to target branch`}
               </pre>
             </div>
           </div>
@@ -104,18 +104,18 @@ git switch -C <branch>      # recreate branch from current commit`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Tracking branches</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git branch -u origin/<branch>    # set upstream
-git push -u origin <branch>      # create branch on remote and track
-git branch -vv                   # show upstream tracking info`}
+                {`git branch -u origin/<branch>  # Link current local branch to remote upstream branch
+git push -u origin <branch>     # Push local branch to remote and configure tracking
+git branch -vv                  # List local branches with upstream information and commit details`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Rename branch</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git branch -m <old> <new>
+                {`git branch -m <old> <new>       # Rename local branch
 
-git push origin --delete <old>
-git push origin -u <new>`}
+git push origin --delete <old>  # Remove old branch from remote
+git push origin -u <new>        # Push new branch name and set upstream`}
               </pre>
             </div>
           </div>
@@ -129,24 +129,24 @@ git push origin -u <new>`}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Merge</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git checkout main
-git merge feature-branch
-git merge --no-ff feature-branch
-git merge --abort`}
+              {`git checkout main               # Switch to target branch for merge
+git merge feature-branch        # Merge feature branch into current branch
+git merge --no-ff feature-branch# Merge and force creation of a merge commit
+git merge --abort               # Abort active merge process and restore state`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Rebase</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git checkout feature-branch
-git rebase main
+              {`git checkout feature-branch     # Switch to branch to rebase
+git rebase main                 # Reapply commits from current branch on top of main
 
 # Interactive rebase
-git rebase -i HEAD~<n>
+git rebase -i HEAD~<n>          # Reorder, squash, or edit last n commits interactively
 
-git rebase --continue
-git rebase --skip
-git rebase --abort`}
+git rebase --continue          # Resume rebase process after resolving conflicts
+git rebase --skip              # Skip current conflicting patch during rebase
+git rebase --abort             # Abort rebase operation and restore original state`}
             </pre>
           </div>
         </div>
@@ -160,21 +160,21 @@ git rebase --abort`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Remote setup</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git remote -v
-git remote add origin <repo-url>
-git remote remove origin
-git remote show origin`}
+                {`git remote -v                  # List configured remote repositories with URLs
+git remote add origin <url>    # Attach local repo to a remote repository URL
+git remote remove origin       # Disconnect remote repository handle
+git remote show origin         # Inspect detailed status of remote repository`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Fetch, pull, push</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git fetch origin
-git pull origin <branch>
+                {`git fetch origin               # Download history and references from remote without merging
+git pull origin <branch>        # Fetch and merge remote changes into active branch
 
-git pull --rebase origin <branch>
-git push origin <branch>
-git push origin --delete <branch>`}
+git pull --rebase origin <branch> # Fetch and reapply local commits on top of incoming remote branch
+git push origin <branch>        # Upload local branch commits to remote repository
+git push origin --delete <branch> # Remove specified branch from remote repository`}
               </pre>
             </div>
           </div>
@@ -187,17 +187,17 @@ git push origin --delete <branch>`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Publish and track</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git push -u origin <branch>   # push and track upstream
-git pull --rebase               # keep history linear
-git push --force-with-lease    # safer force push`}
+                {`git push -u origin <branch>   # Push new branch to remote and set default tracking
+git pull --rebase               # Rebase current branch on tracked upstream changes
+git push --force-with-lease    # Safely overwrite remote branch history if unchanged by others`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Clean up stale remotes</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git remote prune origin
-git fetch --prune
-git branch -r              # list remote branches`}
+                {`git remote prune origin        # Remove local tracking references to deleted remote branches
+git fetch --prune               # Fetch updates and purge deleted remote branch references
+git branch -r                  # List all branches on remote repositories`}
               </pre>
             </div>
           </div>
@@ -211,20 +211,20 @@ git branch -r              # list remote branches`}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Save and restore</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git stash save "message"
-git stash push -m "message"
-git stash list
-git stash show -p stash@{0}
-git stash apply stash@{0}
-git stash pop
-git stash drop stash@{0}
-git stash clear`}
+              {`git stash save "message"       # Save uncommitted changes with description (deprecated style)
+git stash push -m "message"    # Save uncommitted work-in-progress changes with a label
+git stash list                 # Display all saved stashes
+git stash show -p stash@{0}    # Inspect diff contents of a specific stash
+git stash apply stash@{0}   # Reapply stash changes while retaining stash entry
+git stash pop                  # Apply most recent stash and remove it from stack
+git stash drop stash@{0}    # Delete specified stash from stack
+git stash clear                # Remove all saved stashes from stack`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Branch from stash</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git stash branch <name> stash@{0}`}
+              {`git stash branch <name> stash@{0} # Create new branch and apply specified stash to it`}
             </pre>
           </div>
         </div>
@@ -238,25 +238,25 @@ git stash clear`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Commit history</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git commit --amend
-git revert <commit>
-git cherry-pick <commit>`}
+                {`git commit --amend             # Modify latest commit message or add newly staged changes
+git revert <commit>             # Create new commit that undoes changes from a target commit
+git cherry-pick <commit>        # Apply changes introduced by an existing commit to current branch`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Reset modes</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git reset --soft HEAD~1      # keep changes staged
-git reset --mixed HEAD~1     # keep changes unstaged
-git reset --hard HEAD~1      # discard changes`}
+                {`git reset --soft HEAD~1        # Undo commit, leave changes staged in index
+git reset --mixed HEAD~1       # Undo commit, leave changes in working directory (unstaged)
+git reset --hard HEAD~1        # Undo commit and permanently delete all local modifications`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Recover lost commits</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git reflog
-git checkout <sha>
-git switch -c recovery <sha>`}
+                {`git reflog                    # View chronological log of reference HEAD position changes
+git checkout <sha>             # Switch working directory state to isolated commit SHA
+git switch -c recovery <sha>   # Create new branch starting from recovered commit SHA`}
               </pre>
             </div>
           </div>
@@ -269,14 +269,14 @@ git switch -c recovery <sha>`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Bisect flow</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git bisect start
-git bisect bad
-git bisect good <known-good-commit>
+                {`git bisect start              # Begin binary search session for bug hunting
+git bisect bad                 # Mark current commit as containing the bug
+git bisect good <commit>       # Mark target historical commit as bug-free
 # test, then mark each step
-git bisect good
+git bisect good                # Mark current step commit as bug-free
 # or
-git bisect bad
-git bisect reset`}
+git bisect bad                 # Mark current step commit as containing bug
+git bisect reset               # End bisect session and return to original HEAD`}
               </pre>
             </div>
           </div>
@@ -290,17 +290,17 @@ git bisect reset`}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Create tags</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git tag <name>                 # lightweight tag
-git tag -a <name> -m "message"   # annotated tag
-git tag -s <name> -m "message"   # signed tag`}
+              {`git tag <name>                 # Create lightweight pointer tag at HEAD
+git tag -a <name> -m "message"   # Create annotated tag storing metadata and message
+git tag -s <name> -m "message"   # Create GPG-signed annotated tag`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Push tags</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git push origin <tag>
-git push --tags
-git push --follow-tags`}
+              {`git push origin <tag>          # Send specified tag to remote repository
+git push --tags                # Send all local tags to remote repository
+git push --follow-tags         # Send annotated tags associated with pushed commits`}
             </pre>
           </div>
         </div>
@@ -314,22 +314,22 @@ git push --follow-tags`}
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">User settings</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
-git config --global core.editor "code --wait"`}
+                {`git config --global user.name "Your Name"  # Set author name for global commits
+git config --global user.email "you@example.com" # Set author email for global commits
+git config --global core.editor "code --wait"    # Set VS Code as default Git commit editor`}
               </pre>
             </div>
             <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Useful config</h3>
               <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-                {`git config --global core.autocrlf input
-git config --global pull.rebase true
-git config --global push.default current
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.st status
-git config --global alias.lg "log --oneline --graph --decorate --all"`}
+                {`git config --global core.autocrlf input # Normalize line endings to LF on commit
+git config --global pull.rebase true      # Make rebase default behavior for git pull
+git config --global push.default current  # Restrict git push default to active branch
+git config --global alias.co checkout     # Set 'co' shortcut for checkout
+git config --global alias.br branch       # Set 'br' shortcut for branch
+git config --global alias.ci commit       # Set 'ci' shortcut for commit
+git config --global alias.st status       # Set 'st' shortcut for status
+git config --global alias.lg "log --oneline --graph --decorate --all" # Set custom formatted log alias`}
               </pre>
             </div>
           </div>
@@ -362,25 +362,25 @@ git config --global alias.lg "log --oneline --graph --decorate --all"`}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Inspect history</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git show <commit>
-git show <branch>..<branch>
-git blame <file>
+              {`git show <commit>               # Display commit details and file content changes
+git show <branch>..<branch>     # View differences between two branch endpoints
+git blame <file>                 # Display file line-by-line with author and commit metadata
 
-git diff --name-only HEAD~1`}
+git diff --name-only HEAD~1     # List names of files changed in previous commit`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Save work in progress</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git stash push -k -m "wip"   # stash but keep staged changes
-git stash push --include-untracked`}
+              {`git stash push -k -m "wip"     # Stash unstaged modifications while preserving staged items
+git stash push --include-untracked # Stash uncommitted changes including newly untracked files`}
             </pre>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Cleanup</h3>
             <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-950/10 p-4 font-mono text-sm text-slate-900 dark:bg-slate-900 dark:text-slate-100">
-              {`git gc --aggressive --prune=now
-git stash clear`}
+              {`git gc --aggressive --prune=now # Optimize repository storage and delete unreachable objects
+git stash clear                # Purge all entries from local stash store`}
             </pre>
           </div>
         </div>

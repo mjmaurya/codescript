@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/constants";
 import { getAllCheatSheetSlugs, getCheatSheetBySlug } from "@/lib/cheat-sheets-registry";
 import { CheatSheetLayout } from "@/components/cheat-sheet-page/CheatSheetLayout";
 import { GitCheatSheet } from "@/components/cheat-sheet-page/GitCheatSheet";
+import { AngularCheatSheet } from "@/components/cheat-sheet-page/AngularCheatSheet";
 
 export const dynamic = "force-static";
 
@@ -46,6 +47,7 @@ export default async function CheatSheetPage({ params }: { params: Params }) {
   return (
     <CheatSheetLayout sheet={sheet}>
       {sheet.slug === "git" ? <GitCheatSheet /> : null}
+      {sheet.slug === "angular" ? <AngularCheatSheet /> : null}
     </CheatSheetLayout>
   );
 }

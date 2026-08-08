@@ -24,6 +24,19 @@ export const cheatSheets: CheatSheetDefinition[] = [
     updatedAt: "2026-08-08",
     priority: 0.8,
   },
+  {
+    slug: "angular",
+    title: "Angular Cheat Sheet",
+    seoTitle: "Angular Cheat Sheet – CLI, Signals, Control Flow, and Routing",
+    metaDescription:
+      "Essential Angular cheat sheet covering CLI schematics, Signals, control flow syntax, dependency injection, routing, reactive forms, and RxJS integration.",
+    shortDescription:
+      "CLI schematics, standalone components, Signals, control flow syntax, routing, reactive forms, and lifecycle hooks.",
+    keywords: ["angular cheat sheet", "angular signals", "angular cli", "angular control flow", "standalone components"],
+    componentKey: "angular",
+    updatedAt: "2026-08-09",
+    priority: 0.8,
+  }
 ];
 
 export function getAllCheatSheetSlugs() {
