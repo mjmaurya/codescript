@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { ToolDefinition } from "@/lib/tools-registry";
 import { getCategoryBySlug, getRelatedTools } from "@/lib/tools-registry";
-import { buildFaqJsonLd } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildToolJsonLd } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 import { FaqAccordion } from "./FaqAccordion";
 import { RelatedTools } from "./RelatedTools";
 import { RelatedReading, type RelatedReadingItem } from "./RelatedReading";
@@ -19,12 +20,27 @@ export function ToolLayout({
   const category = getCategoryBySlug(tool.category);
   const related = getRelatedTools(tool);
   const faqJsonLd = buildFaqJsonLd(tool);
+  const toolJsonLd = buildToolJsonLd(tool);
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: "Home", url: SITE_URL },
+    { name: "Tools", url: `${SITE_URL}/tools/` },
+    ...(category ? [{ name: category.label, url: `${SITE_URL}/tools/#${category.slug}` }] : []),
+    { name: tool.title, url: `${SITE_URL}/tools/${tool.slug}/` },
+  ]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <nav className="mb-4 flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400">
