@@ -20,6 +20,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: `${SITE_NAME} – ${SITE_TAGLINE}`, template: `%s | ${SITE_NAME}` },
   description: SITE_TAGLINE,
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} – ${SITE_TAGLINE}`,
+    description: SITE_TAGLINE,
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} – ${SITE_TAGLINE}`,
+    description: SITE_TAGLINE,
+  },
 };
 
 export default function RootLayout({

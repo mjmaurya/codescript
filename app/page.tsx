@@ -2,10 +2,19 @@ import Link from "next/link";
 import { categories, getToolsByCategory } from "@/lib/tools-registry";
 import { ToolCard } from "@/components/tool-page/ToolCard";
 import { SITE_TAGLINE } from "@/lib/constants";
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo";
 
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildOrganizationJsonLd()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildWebSiteJsonLd()) }}
+      />
       <section className="mb-14 max-w-2xl">
         <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl dark:text-slate-100">
           Developer tools that just work.
