@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
 import { tools } from "@/lib/tools-registry";
+import { cheatSheets } from "@/lib/cheat-sheets-registry";
 
 export const dynamic = "force-static";
 
@@ -26,6 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: tool.updatedAt,
       changeFrequency: "monthly" as const,
       priority: tool.priority ?? 0.8,
+    })),
+    ...cheatSheets.map((sheet) => ({
+      url: `${SITE_URL}/cheat-sheets/${sheet.slug}/`,
+      lastModified: sheet.updatedAt,
+      changeFrequency: "monthly" as const,
+      priority: sheet.priority ?? 0.7,
     })),
   ];
 }
