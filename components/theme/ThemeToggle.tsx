@@ -10,7 +10,7 @@ export function ThemeToggle() {
   }, []);
 
   function toggle() {
-    const next = !isDark;
+    const next = !(isDark ?? false);
     setIsDark(next);
     document.documentElement.classList.toggle("dark", next);
     try {
@@ -24,7 +24,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      className="flex h-8 w-8 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+      className="flex cursor-pointer h-8 w-8 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
     >
       {isDark === null ? null : isDark ? (
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
